@@ -32,6 +32,15 @@ const threeApp = () => {
             model.scale.set(0.001, 0.001, 0.001)
             model.children[0].geometry.computeBoundingBox()
             studio.addToScene(model)
+
+            const objects = modelData.getObjects()
+            for (let key in objects) {
+                studio.setToIntercepts(objects[key])
+            }
+
+
+
+
         }, null, null, textureCube)
 
         let oldTime = Date.now()

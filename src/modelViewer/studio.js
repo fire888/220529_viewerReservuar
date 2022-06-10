@@ -5,6 +5,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 const BACK_COLOR = 0xDBE5FF
 
 
+
+
 export const createStudio = (cubeMap) => {
     const container = document.querySelector('#scene');
     container.style.width = window.innerWidth + 'px'
@@ -14,7 +16,7 @@ export const createStudio = (cubeMap) => {
     //scene.background = cubeMap
 
     const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, .01, 100);
-    camera.position.set( 0, 5, 8);
+    camera.position.set( 0, 2, -6);
     camera.lookAt(0, 0, 0)
     scene.add(camera)
 
@@ -60,12 +62,83 @@ export const createStudio = (cubeMap) => {
 
 
 
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+
+
+
+
+    let currentObject = null
+    const forIntercepts = []
+
+    function onPointerClick( event ) {
+        // calculate pointer position in normalized device coordinates
+        // (-1 to +1) for both components
+        pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+        pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+        raycaster.setFromCamera( pointer, camera );
+        // calculate objects intersecting the picking ray
+        const intersects = raycaster.intersectObjects(forIntercepts);
+        if (intersects[0]) {
+            console.log(intersects[0])
+            if (currentObject) {
+                if (intersects[0].object.name !== currentObject.name) {
+                    currentObject.material.color.set(0xFFF6DB)
+                }
+            }
+            intersects[0].object.material.color.set(0xff0000)
+            currentObject = intersects[0].object
+            name.innerText = currentObject.name
+        }
+    }
+
+    function onPointerMove( event ) {
+        // calculate pointer position in normalized device coordinates
+        // (-1 to +1) for both components
+        pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+        pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+        raycaster.setFromCamera( pointer, camera );
+        // calculate objects intersecting the picking ray
+        const intersects = raycaster.intersectObjects(forIntercepts);
+        if (intersects[0]) {
+            renderer.domElement.style.cursor = 'pointer'
+
+        } else {
+            renderer.domElement.style.cursor = 'auto'
+        }
+    }
+
+
+    window.addEventListener( 'click', onPointerClick);
+    window.addEventListener( 'pointermove', onPointerMove);
+
+
+
+    const name = document.createElement('div')
+    name.classList.add('objName')
+    document.body.appendChild(name)
+
+
     return {
         addToScene(model) {
             scene.add(model)
         },
+        setToIntercepts (mesh) {
+            forIntercepts.push(mesh)
+        },
         render () {
-            camera && renderer.render( scene, camera );
+            if (!camera) {
+                return
+            }
+
+
+
+
+
+            renderer.render( scene, camera );
+
+
+
         },
         resize () {
             if (!camera) {

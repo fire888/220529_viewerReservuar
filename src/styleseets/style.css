@@ -5,6 +5,10 @@
           box-sizing: border-box;
 }
 
+body {
+  overflow: hidden;
+}
+
 
 
 .scene-container {
@@ -16,4 +20,17 @@
 #scene {
   width: 100vw;
   height: 100vh;
+}
+
+
+.objName {
+  position: absolute;
+  z-index: 1000;
+  left: 50vw;
+  bottom: 20px;
+  font-size: 20px;
+  text-align: center;
+  background-color: white;
+  padding: 5px 30px;
+  transform: translate(-50%, 0);
 }
