@@ -26,6 +26,10 @@ body {
 .objName {
   position: absolute;
   z-index: 1000;
+  min-width: 400px;
+  min-height: 150px;
+  border-radius: 5px;
+  border: 1px solid #333333;
   left: 50vw;
   bottom: 20px;
   font-size: 20px;

@@ -105,15 +105,60 @@
       color: white;
     }
     .objName {
+      display: none;
+      position: absolute;
+      z-index: 1000;
+      min-width: 400px;
+      min-height: 150px;
+      border-radius: 5px;
+      border: 1px solid #949494;
+      left: 50vw;
+      bottom: 20px;
+      font-size: 20px;
+      background-color: white;
+      padding: 15px 20px;
+      transform: translate(-50%, 0);
+      box-shadow: 5px 3px 3px #1e2c1977;
+}
+
+.closeName {
   position: absolute;
-  z-index: 1000;
-  left: 50vw;
-  bottom: 20px;
-  font-size: 20px;
-  text-align: center;
-  background-color: white;
-  padding: 5px 30px;
-  transform: translate(-50%, 0);
+  right: 15px;
+  top: 5px;
+  font-size: 15px;
+  color: #525252;
+  cursor: pointer;
+} 
+
+.closeName:hover  {
+  color: #222222;
+} 
+
+.hidden {
+  animation: fadeInFromNone 0.1s ease-out;
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: block;
+        opacity: 1;
+    }
+
+    98% {
+        display: block;
+        opacity: 0;
+    }
+
+    99% {
+        display: none;
+        opacity: 0;
+    }
+
+
+    100% {
+        display: none;
+        opacity: 1;
+    }
 }
 
   </style>
