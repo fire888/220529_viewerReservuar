@@ -1,4 +1,4 @@
-import './styleseets/style.css'
+//import './styleseets/style.css'
 
 import WebGL from 'three/examples/jsm/capabilities/WebGL';
 import Stats from 'three/examples/jsm/libs/stats.module.js';

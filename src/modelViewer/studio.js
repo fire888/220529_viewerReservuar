@@ -13,7 +13,6 @@ export const createStudio = (cubeMap) => {
     container.style.height = window.innerHeight + 'px';
 
     const scene = new THREE.Scene();
-    //scene.background = cubeMap
 
     const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, .01, 100);
     camera.position.set( 0, 2, -6);
@@ -21,14 +20,10 @@ export const createStudio = (cubeMap) => {
     scene.add(camera)
 
     const renderer = new THREE.WebGLRenderer({ antialias: true })
-    renderer.setPixelRatio( /*window.devicePixelRatio*/ 1 )
+    renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(window.innerWidth, window.innerHeight)
     renderer.setClearColor(BACK_COLOR, 1)
-    //renderer.shadowMap.enabled = true;
-    //renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
-    //renderer.outputEncoding = THREE.sRGBEncoding;
-    //renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    //renderer.physicallyCorrectLights = true;
+
 
     container.appendChild( renderer.domElement );
 
@@ -130,15 +125,7 @@ export const createStudio = (cubeMap) => {
             if (!camera) {
                 return
             }
-
-
-
-
-
             renderer.render( scene, camera );
-
-
-
         },
         resize () {
             if (!camera) {

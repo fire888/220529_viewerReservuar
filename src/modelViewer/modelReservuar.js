@@ -31,15 +31,11 @@ export const createModel = (onComplete, onProcess = () => {}, onError = () => {}
                 //child.castShadow = true
                 //child.receiveShadow = true
 
-
-
-
                 child.material = mat
-
                 if (child.name.includes('Element')) {
-
                     const mat = new THREE.MeshPhongMaterial({
-                        color: Math.random() * 0xFFFFFF,
+                        //color: Math.random() * 0xFFFFFF,
+                        color: 0xFFF6DB,
                         emissive: 0x09140B,
                         specular: 0xffffff,
                         shininess: 40,
@@ -54,26 +50,12 @@ export const createModel = (onComplete, onProcess = () => {}, onError = () => {}
 
                     elements[child.name] = child
                 }
-
             }
         })
         onComplete()
     });
 
     console.log(elements)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     return {
         getScene () {

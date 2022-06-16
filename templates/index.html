@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Схема</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name='viewport' content='width=device-width, user-scalable=no'>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    *:focus {
+      outline: 0 !important;
+    }
+    body {
+      overflow: hidden;
+      /*font-family: Geneva, Arial, Helvetica, sans-serif;*/
+      font-family: 'Roboto Mono' monospace;
+    }
+    .start-screen {
+      color: #c6c9a7;;
+      position: absolute;
+      z-index: 100;
+      background: linear-gradient(to top, #1e2c19 60%, #c6c9a7 60%);
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+    }
+    .load-container {
+      margin-top: 5vh; 
+      min-width: 100%;
+      text-align: center;
+      min-height: 60px;
+    }
+    .progress-wrapper {
+      margin-top: 10px; 
+      min-height: 5px;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 5px; 
+    }
+    .progress {
+      width: 200%;
+      min-height: 5px;
+      background: url(imgs/progress-img.png);
+      margin-left: -100%; 
+    }
+    .start { 
+      width: 100%;
+      background: #c6c9a7;
+      color: #2a2932;
+      min-height: 50px;
+      font-size: 20px;
+      border: 2px solid #c6c9a7;
+      border-radius: 2px;
+      transition: 0.2s;  
+    }
+    .start:hover {
+      background: #1e2c19;
+      color: #c6c9a7;
+      cursor: pointer;
+    }
+    .canvas-wrapper {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .app-title {
+      position: absolute;
+      z-index: 80;
+      background-color: #FFFFFF88;
+      color: rgba(0, 0, 0, 0.767);
+      left: 5px;
+      top: 5px;
+      padding: 3px 10px 3px 10px;
+      text-align: right;
+      min-width: 250px;
+      font-family: 'Gill Sans';
+      font-weight: bold;
+      font-size: 20px;
+      border: 1px solid #000000;
+    }
+    .path-cont {
+      position: absolute;
+      z-index: 100;
+      right: 0;
+      top: 0;
+      display: flex;
+      flex-direction: row;
+    }
+    .path-cont button {
+      font-size: 10px;
+      cursor: pointer;
+    }
+    .cont-column {
+      display: flex;
+      flex-direction: column;
+    }
+    .red {
+      background-color: red;
+      color: white;
+    }
+    .objName {
+  position: absolute;
+  z-index: 1000;
+  left: 50vw;
+  bottom: 20px;
+  font-size: 20px;
+  text-align: center;
+  background-color: white;
+  padding: 5px 30px;
+  transform: translate(-50%, 0);
+}
+
+  </style>
+</head>
+<body>
+  <body>
+    <div class="scene-container">
+        <section id="fixed-container">
+            <div id="scene"></div>
+        </section>
+        <div id="scroll-container"></div>
+    </div>
+</body>
+</html>
+
+
